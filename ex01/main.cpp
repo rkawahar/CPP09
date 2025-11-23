@@ -6,7 +6,7 @@
 /*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:44:57 by kawaharadar       #+#    #+#             */
-/*   Updated: 2024/12/29 02:49:12 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/11/23 13:54:01 by kawaharadar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(int ac, char **av) {
 		return 1;
 	}
 	try {
+		RPN::check_input(av);
 		RPN cal;
 		cal.calculate(av[1]);
 	} catch (std::exception &e) {

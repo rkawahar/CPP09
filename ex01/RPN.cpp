@@ -6,11 +6,16 @@
 /*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:44:59 by kawaharadar       #+#    #+#             */
-/*   Updated: 2024/12/29 03:16:03 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/11/23 13:54:01 by kawaharadar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <sstream>
+#include <limits>
+#include <stdexcept>
+#include <cstdlib>
+#include <cctype>
 
 RPN& RPN::operator=(const RPN& other) {
 	if (this != &other) {
@@ -28,14 +33,51 @@ RPN::RPN() {};
 RPN::~RPN() {};
 
 int RPN::ans(int num1, int num2, char sign) {
+    static long long ans;
 	if (sign == '+')
-		return (num1 + num2);
+		ans = num1 + num2;
 	else if (sign == '-')
-		return (num1 - num2);
+		ans = num1 - num2;
 	else if (sign == '*')
-		return (num1 * num2);
+		ans = num1 * num2;
 	else
-		return (num1 / num2);
+		ans = num1 / num2;
+    if (ans > 2147483647 || ans < -2147483648)
+        throw std::invalid_argument("Error: answer is out of range");
+    return static_cast<int>(ans);
+}
+
+void RPN::check_input(char **av) {
+    std::string str = av[1];
+    std::istringstream iss(str);
+    std::string token;
+    
+    const long long INT_MAX_LL = std::numeric_limits<int>::max();
+    const long long INT_MIN_LL = std::numeric_limits<int>::min();
+    
+    while (iss >> token) {
+        // 演算子の場合はスキップ
+        if (token == "+" || token == "-" || token == "*" || token == "/") {
+            continue;
+        }
+        
+        // 数字の場合のみチェック
+        if (std::isdigit(token[0]) || (token[0] == '-' && token.length() > 1 && std::isdigit(token[1]))) {
+            // long longに変換してオーバーフローをチェック
+            char *endptr;
+            long long num = std::strtoll(token.c_str(), &endptr, 10);
+            
+            // 変換エラーのチェック
+            if (*endptr != '\0') {
+                throw std::invalid_argument("Error: invalid number format");
+            }
+            
+            // オーバーフローチェック
+            if (num > INT_MAX_LL || num < INT_MIN_LL) {
+                throw std::invalid_argument("Error: number is out of int range");
+            }
+        }
+    }
 }
 
 void RPN::calculate(std::string str) {
