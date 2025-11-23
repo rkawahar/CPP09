@@ -6,7 +6,7 @@
 /*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 17:32:56 by kawaharadar       #+#    #+#             */
-/*   Updated: 2025/11/23 16:37:37 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/11/23 18:17:38 by kawaharadar      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ struct pairs {
 
 std::deque<pairs> create_deque(char **av);
 std::vector<pairs> create_vector(char **av);
-// std::deque<pairs> sort_deque(std::deque<pairs> deq);
-// std::vector<pairs> sort_vector(std::vector<pairs> vec);
 std::deque<pairs> deq_systematization(std::deque<pairs> deq);
 std::vector<pairs> vec_systematization(std::vector<pairs> vec);
 int ft_num(char *str);
