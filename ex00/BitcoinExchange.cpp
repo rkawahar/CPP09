@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/25 18:11:03 by kawaharadar       #+#    #+#             */
-/*   Updated: 2024/12/29 01:42:11 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/12/15 14:52:51 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ double BitcoinExchange::findRate(std::string& date) {
 }
 
 void BitcoinExchange::analyze(const std::string &file) {
-	std::ifstream infile(file);
+	std::ifstream infile(file.c_str());
 	if (!infile)
 		throw BitcoinExchange::CantOpenInfileException();
 	std::string line;
