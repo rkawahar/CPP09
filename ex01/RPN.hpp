@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:45:02 by kawaharadar       #+#    #+#             */
-/*   Updated: 2025/11/23 14:00:34 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/12/15 15:26:18 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RPN {
 		RPN& operator=(const RPN& other);
 		RPN(const RPN& other);
 		std::stack<int, std::list<int> > _data;
-		int ans(int num1, int num2, char sign);
+		int ans(long num1, long num2, char sign);
 
 	public:
 		RPN();

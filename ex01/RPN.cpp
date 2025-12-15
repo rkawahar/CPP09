@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:44:59 by kawaharadar       #+#    #+#             */
-/*   Updated: 2025/11/23 13:54:01 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/12/15 15:26:55 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ RPN::RPN() {};
 
 RPN::~RPN() {};
 
-int RPN::ans(int num1, int num2, char sign) {
-    static long long ans;
+int RPN::ans(long num1, long num2, char sign) {
+    static long ans;
 	if (sign == '+')
 		ans = num1 + num2;
 	else if (sign == '-')
@@ -42,8 +42,11 @@ int RPN::ans(int num1, int num2, char sign) {
 		ans = num1 * num2;
 	else
 		ans = num1 / num2;
+	
     if (ans > 2147483647 || ans < -2147483648)
-        throw std::invalid_argument("Error: answer is out of range");
+	{
+		throw std::invalid_argument("Error: answer is out of range");	
+	}
     return static_cast<int>(ans);
 }
 
@@ -96,7 +99,7 @@ void RPN::calculate(std::string str) {
 			_data.pop();
 			int num2 = _data.top();
 			_data.pop();
-			int a = ans(num2, num1, *it);
+			int a = ans(static_cast<long>(num1), static_cast<long>(num2), *it);
 			_data.push(a);
 		}
 		else
