@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kawaharadaryou <kawaharadaryou@student.    +#+  +:+       +#+        */
+/*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 17:30:29 by kawaharadar       #+#    #+#             */
-/*   Updated: 2025/11/23 16:39:32 by kawaharadar      ###   ########.fr       */
+/*   Updated: 2025/12/17 11:31:37 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

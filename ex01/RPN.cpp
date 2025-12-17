@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:44:59 by kawaharadar       #+#    #+#             */
-/*   Updated: 2025/12/15 15:26:55 by rkawahar         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:32:22 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ int RPN::ans(long num1, long num2, char sign) {
 	if (sign == '+')
 		ans = num1 + num2;
 	else if (sign == '-')
-		ans = num1 - num2;
+		ans = num2 - num1;
 	else if (sign == '*')
 		ans = num1 * num2;
 	else
-		ans = num1 / num2;
+		ans = num2 / num1;
 	
     if (ans > 2147483647 || ans < -2147483648)
 	{
