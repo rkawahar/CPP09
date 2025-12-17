@@ -6,7 +6,7 @@
 /*   By: rkawahar <rkawahar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 01:44:59 by kawaharadar       #+#    #+#             */
-/*   Updated: 2025/12/17 11:32:22 by rkawahar         ###   ########.fr       */
+/*   Updated: 2025/12/17 11:35:05 by rkawahar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void RPN::check_input(char **av) {
             if (*endptr != '\0') {
                 throw std::invalid_argument("Error: invalid number format");
             }
-            
+
             // オーバーフローチェック
             if (num > INT_MAX_LL || num < INT_MIN_LL) {
                 throw std::invalid_argument("Error: number is out of int range");
